@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/job-manager;AUTO_SERVER=TRUE  # H2 disk mode (persistent)
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""  # Default empty password for H2
+  h2:
+    console:
+      enabled: true  # ✅ Enables H2 Web Console (http://localhost:8080/h2-console)
+      path: /h2-console  # ✅ Access the H2 console via this path
+  sql:
+    init:
+      mode: always  # Ensures schema.sql runs at startup
+      schema-locations: classpath:schema.sql  # Ensure schema.sql is in src/main/resources
+  task:
+    scheduling:
+      enabled: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  # Enables camel case mapping for MyBatis
+#logging:
+#  level:
+#    root: INFO
+#    org.mybatis: DEBUG
+#    org.apache.ibatis: DEBUG
+#    com.example.springbatch.mapper: TRACE  # Set to your package where MyBatis mappers exist
